@@ -1,2 +1,4 @@
-# Calculator-
-this repository is dedicated for the 2021 object oriented programming for electronics engineering subject.
+# Calculator_UI
+This branch is dedicated for the Graphics User interface of the calculator 
+
+Log updates: 
