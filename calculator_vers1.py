@@ -127,7 +127,8 @@ class Ui_MainWindow(object):
             cf.addition()
         elif pressed == "(-)":
             cf.negative_sign()
-
+        elif pressed == ".":
+            cf.decimal()
         #Calculator methods here
         elif pressed == "clear":
             cf.clear_all()
