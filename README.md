@@ -8,8 +8,8 @@ cf(calculator_logic) and test_run(test file)  uploaded June 29 - this is the ear
 - version 2 of the calcu-logic 
 added features: -decimal -trigonometry - inversetrigonometry -logarithms -square root -different errors - delete(one character) -ans function 
 
-fix:
-\n-float accuracy
+- fix:
+float accuracy
 
 ---------------------------------------------------------------test.py------------------
 -unittest for the calcu_logic.py, as of now it contains 29 tests 
