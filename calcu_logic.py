@@ -5,24 +5,26 @@ import math
 equation = ""  # variable that stores all the inputs
 syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry = 0,0,0,0  #variable that acts as a flag if there is syntax error
 
-symbols = ["++", "--", "**", "//"]
+symbols = ["++", "--", "**", "//", "÷÷"]
 trigonometry = ["sin", "cos", "tan","arcsin", "arccos", "arctan"]
 logarithms = ["ln", "e", "log"]
 squar_root = "√"
 answer_button = "0" #default answer value to zero
+chain = False #This flag will deside if the calculation will automatically chain (input ANS by default)
+deg_rad = True #the calculator is in degrees mode if True, and rad mode if false, it is degrees mode in default.
 
 #----------calculator functions-----------
 def calculate() -> str:
     """this executes the equation"""
     global equation, syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry
-    global answer_button
+    global answer_button, chain
     find_ans()
 
     #check for double symbol errors
     for s in symbols:
         if s in equation:
             return "Syntax error"
-    exponent_negativesign_convert()
+    convert_symbols()
     #check for sqrt
     if squar_root in equation:
         examine_sqrt()
@@ -47,6 +49,7 @@ def calculate() -> str:
         syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry = 0,0,0,0
         answer_button = str(eval(equation))
         equation = ""
+        chain = True
         return answer_button
     except ZeroDivisionError:
         return "Math zero divison error"
@@ -55,9 +58,10 @@ def calculate() -> str:
 
 def clear_all() -> None:
     """This function will make the equation an empty string"""
-    global equation, syntax_flag
+    global equation, syntax_flag, chain
     equation = ""
     syntax_flag,syntax_logarithm, syntax_trigonometry = 0,0,0
+    chain = False
 
 def delete() -> None:
     """This function will delete certain characters from the equation"""
@@ -69,113 +73,177 @@ def delete() -> None:
         equation = equation[:-2]
     elif equation[-1] in sym: #delete the whole sin, cos, tan, log
         equation = equation[:-3]
-    else:
+    elif equation:
         equation = equation[:-1] #delete one character symbols and number
 
-    equation = ""
-    syntax_flag = 0
 
 def ans() -> None:
     """This function will input ans ---
     the calculator will automatical save the last calculation in to the variable "ans" """
-    global equation
+    global equation, chain
     equation += "ans"
+    chain = False
+
+
 
 #----------------------------functions for symbols here--------------------
 def addition() -> None:
     """This will add a plus symbol"""
-    global equation
-    equation += "+"
+    global equation, chain
+    if chain:
+        equation += "ans+"
+        chain = False
+    else:
+        equation += "+"
 
 def subtraction() -> None:
     """This will add a plus symbol"""
-    global equation
-    equation += "-"
+    global equation, chain
+    if chain:
+        equation += "ans-"
+        chain = False
+    else:
+        equation += "-"
 
 def division() -> None:
     """This will add a plus symbol"""
-    global equation
-    equation += "/"
+    global equation, chain
+    if chain:
+        equation+= "ans÷"
+        chain = False
+    else:
+        equation += "÷"
 
 def multiplication() -> None:
     """This will add a plus symbol"""
-    global equation
-    equation += "*"
+    global equation, chain
+    if chain:
+        chain = False
+        equation += "ans×"
+    else:
+        equation += "×"
 
 def exponent() -> None:
     """This will add a plus symbol"""
-    global equation
-    equation += "^"
+    global equation,chain
+    if chain:
+        equation += "ans^"
+        chain=False
+    else:
+        equation += "^"
 
 def negative_sign() -> None:
     """This will add a plus symbol"""
-    global equation
-    equation += "﹣" #small hyphen-minus (﹣)
+    global equation, chain
+    if chain:
+        equation += "﹣ans" #small hyphen-minus (﹣)
+    else:
+        equation += "﹣"
 
 def parenthesis_open() -> None:
     """This will add a plus symbol"""
-    global equation
+    global equation,chain
     equation += "("
+    chain = False
 
 def parenthesis_close() -> None:
     """This will add a plus symbol"""
-    global equation
+    global equation, chain
     equation += ")"
+    chain = False
 
 def decimal() -> None:
     """This will add a decimal symbol"""
-    global equation
+    global equation,chain
     equation += "."
+    chain = False
 
 def e() -> None:
     """This function will input e"""
-    global equation
+    global equation, chain
     equation += "e"
+    chain = False
 
 def sin() -> None:
     """This will input sin"""
-    global equation
-    equation += "sin"
+    global equation, chain
+    if chain:
+        equation += "sin(ans)"
+        chain = False
+    else:
+        equation += "sin"
 
 def cos() -> None:
     """This will input cos"""
-    global equation
-    equation += "cos"
+    global equation, chain
+    if chain:
+        equation += "cos(ans)"
+        chain = False
+    else:
+        equation += "cos"
 
 def tan() -> None:
     """This will input tan"""
-    global equation
-    equation += "tan"
+    global equation,chain
+    if chain:
+        equation += "tan(ans)"
+        chain = False
+    else:
+        equation += "tan"
 
 def arcsin() -> None:
     """This will input sin"""
-    global equation
-    equation += "arcsin"
+    global equation, chain
+    if chain:
+        equation += "arcsin(ans)"
+        chain = False
+    else:
+        equation += "arcsin"
 
 def arccos() -> None:
     """This will input cos"""
-    global equation
-    equation += "arccos"
+    global equation, chain
+    if chain:
+        equation += "arccos(ans)"
+        chain = False
+    else:
+        equation += "arccos"
 
 def arctan() -> None:
     """This will input tan"""
-    global equation
-    equation += "arctan"
+    global equation, chain
+    if chain:
+        equation += "arctan(ans)"
+        chain = False
+    else:
+        equation += "arctan"
 
 def ln() -> None:
     """This will input ln"""
-    global equation
-    equation += "ln"
+    global equation, chain
+    if chain:
+        equation += "ln(ans)"
+        chain = False
+    else:
+        equation += "ln"
 
 def log() -> None :
     """This will input log"""
-    global equation
-    equation += "log"
+    global equation, chain
+    if chain:
+        equation += "log(ans)"
+        chain = False
+    else:
+        equation += "log"
 
 def sqrt() -> None:
     """This will input √ square root"""
-    global equation
-    equation += "√"
+    global equation, chain
+    if chain:
+        equation += "√(ans)"
+        chain = False
+    else:
+        equation += "√"
 #---------------------------------TRIGONOMETRY FUNCTIONS-------------------------------
 
 def examine_trigo() -> None:
@@ -195,50 +263,74 @@ def find_sin() -> None:
         i = equation.index("sin")
         num = find_number_trigo(i)
         if num:
-            ans = round(math.sin(math.radians(float(num))),10)
-            equation = equation[:i] + "the" + equation[i:]
-            replace_word = f"thesin({num})"
-            equation = equation.replace(replace_word, str(ans))
-            replace_word = f"thesin{num}"
-            equation = equation.replace(replace_word, str(ans))
+            if deg_rad:
+                ans = round(math.sin(math.radians(float(num))),10)
+                equation = equation[:i] + "the" + equation[i:]
+                replace_word = f"thesin({num})"
+                equation = equation.replace(replace_word, str(ans))
+                replace_word = f"thesin{num}"
+                equation = equation.replace(replace_word, str(ans))
+            else:
+                ans = round(math.sin((float(num))), 10)
+                equation = equation[:i] + "the" + equation[i:]
+                replace_word = f"thesin({num})"
+                equation = equation.replace(replace_word, str(ans))
+                replace_word = f"thesin{num}"
+                equation = equation.replace(replace_word, str(ans))
         else:
             replace_word = "sin"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
 
 def find_cos() -> None:
-    "This converts the cos in the equation to numerical value"
+    """This converts the cos in the equation to numerical value"""
     global equation, syntax_trigonometry
     while "cos" in equation:
 
         i = equation.index("cos")
         num = find_number_trigo(i)
         if num:
-            ans = round(math.cos(math.radians(float(num))), 10)
-            equation = equation[:i] + "the" + equation[i:]
-            replace_word = f"thecos({num})"
-            equation = equation.replace(replace_word, str(ans))
-            replace_word = f"thecos{num}"
-            equation = equation.replace(replace_word, str(ans))
+            if deg_rad:
+                ans = round(math.cos(math.radians(float(num))), 10)
+                equation = equation[:i] + "the" + equation[i:]
+                replace_word = f"thecos({num})"
+                equation = equation.replace(replace_word, str(ans))
+                replace_word = f"thecos{num}"
+                equation = equation.replace(replace_word, str(ans))
+            else:
+                ans = round(math.cos((float(num))), 10)
+                equation = equation[:i] + "the" + equation[i:]
+                replace_word = f"thecos({num})"
+                equation = equation.replace(replace_word, str(ans))
+                replace_word = f"thecos{num}"
+                equation = equation.replace(replace_word, str(ans))
         else:
             replace_word = "cos"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
 
 def find_tan() -> None:
-    "This converts the tan in the quation to numerical value"
+    """This converts the tan in the quation to numerical value"""
     global equation, syntax_trigonometry
     while "tan" in equation:
 
         i = equation.index("tan")
         num = find_number_trigo(i)
         if num:
-            ans = round(math.tan(math.radians(float(num))), 10)
-            equation = equation[:i] + "the" + equation[i:]
-            replace_word = f"thetan({num})"
-            equation = equation.replace(replace_word, str(ans))
-            replace_word = f"thetan{num}"
-            equation = equation.replace(replace_word, str(ans))
+            if deg_rad:
+                ans = round(math.tan(math.radians(float(num))), 10)
+                equation = equation[:i] + "the" + equation[i:]
+                replace_word = f"thetan({num})"
+                equation = equation.replace(replace_word, str(ans))
+                replace_word = f"thetan{num}"
+                equation = equation.replace(replace_word, str(ans))
+            else:
+                ans = round(math.tan((float(num))), 10)
+                equation = equation[:i] + "the" + equation[i:]
+                replace_word = f"thetan({num})"
+                equation = equation.replace(replace_word, str(ans))
+                replace_word = f"thetan{num}"
+                equation = equation.replace(replace_word, str(ans))
         else:
             replace_word = "tan"
             equation = equation.replace(replace_word, "")
@@ -341,21 +433,22 @@ def find_number_trigo(i: int) -> str:
             break
     return n
 
-#--------------------------------Logarithms, e, ln--------------------
+#------------------------------------------------------Logarithms, e, ln-------------------------------------------------
 def examine_logarithm() -> None:
+    """converts any logarthm inputs into numerical value"""
     convert_e()
     find_ln()
     find_log()
 
 def convert_e() -> None:
-    "This converts the tan in the quation to numerical value"
+    """This converts the tan in the quation to numerical value"""
     global equation
     while "e" in equation:
         ans = math.e
         equation = equation.replace("e", str(ans))
 
 def find_ln() -> None:
-    "This converts the tan in the quation to numerical value"
+    """This converts the tan in the quation to numerical value"""
     global equation,syntax_inversetrigonometry
     while "ln" in equation:
 
@@ -377,7 +470,7 @@ def find_ln() -> None:
             equation = equation.replace(replace_word, "")
 
 def find_log() -> None:
-    "This converts the tan in the quation to numerical value"
+    """This converts the tan in the quation to numerical value"""
     global equation,syntax_inversetrigonometry
     while "log" in equation:
 
@@ -455,11 +548,13 @@ def examine_sqrt() -> None:
             equation = equation.replace(replace_word, "")
 
 #--------------------------For the exponent and negative sign symbols-------------
-def exponent_negativesign_convert():
+def convert_symbols():
     global equation
-    if "^" or "﹣" in equation:
+    if "^" or "﹣" or "÷" or "×" in equation:
         equation = equation.replace("^", "**")
         equation = equation.replace("﹣", "-")
+        equation = equation.replace("÷", "/")
+        equation = equation.replace("×", "*")
 
 #---------------------------For the ANS button---------------------
 def find_ans() -> None:
@@ -471,50 +566,54 @@ def find_ans() -> None:
 
 #---------------------------------Functions for inputing numbers --------------------
 def one():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "1"
+    chain = False
+
 def two():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "2"
+    chain = False
 def three():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "3"
+    chain = False
 def four():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "4"
-
+    chain = False
 def five():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "5"
+    chain = False
 def six():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "6"
+    chain = False
 def seven():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "7"
+    chain = False
 def eight():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "8"
+    chain = False
 def nine():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "9"
+
 def zero():
-    global equation
+    global equation,chain
     """Adding number 5 to the equation"""
     equation += "0"
+    chain = False
 
-clear_all()
-sqrt() ; two() ; five()
-decimal()
-two(); five()
-examine_sqrt()
-print(equation)
