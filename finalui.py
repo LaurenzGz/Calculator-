@@ -957,7 +957,7 @@ class Ui_Calculator(object):
         self.arccos.setText(_translate("Calculator", "arccos"))
         self.arctan.setText(_translate("Calculator", "arctan"))
         self.exponent.setText(_translate("Calculator", "^"))
-        self.exponent.setShortcut(_translate("Calculator", "Down"))
+        self.exponent.setShortcut(_translate("Calculator", "^"))
         self.negative.setText(_translate("Calculator", "( - )"))
         self.degrad.setText(_translate("Calculator", "deg/rad"))
         self.display.setText(_translate("Calculator", "<html><head/><body><p><span style=\" color:#ffffff;\">0</span></p></body></html>"))
