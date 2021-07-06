@@ -10,3 +10,10 @@ June 30 -- Calculator version 1 finished
       possible improvements:
   + Ans button
   + Single Clear button
+
+
+July 7 (1:22 AM)
+- uploaded main.py
+- uploaded calcu_logic.py 
+-  ------------------------- 
+- These two files are the version 2.0 of the calculator, expanded logic and new UI  
