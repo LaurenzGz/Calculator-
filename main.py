@@ -844,6 +844,13 @@ class Ui_Calculator(object):
         self.rad.setFont(font)
         self.rad.setAlignment(QtCore.Qt.AlignCenter)
         self.rad.setObjectName("rad")
+        self.bgFrame = QtWidgets.QFrame(self.centralwidget)
+        self.bgFrame.setGeometry(QtCore.QRect(10, 0, 308, 397))
+        self.bgFrame.setStyleSheet("background: rgba(0, 0, 0, 10);")
+        self.bgFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.bgFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.bgFrame.setObjectName("bgFrame")
+        self.bgFrame.raise_()
         self.dragFrame.raise_()
         self.background.raise_()
         self.seven.raise_()
@@ -887,22 +894,6 @@ class Ui_Calculator(object):
         self.deg.raise_()
         self.rad.raise_()
         Calculator.setCentralWidget(self.centralwidget)
-        self.actionBasic = QtWidgets.QAction(Calculator)
-        self.actionBasic.setObjectName("actionBasic")
-        self.actionScientific = QtWidgets.QAction(Calculator)
-        self.actionScientific.setObjectName("actionScientific")
-        self.actionStandarad = QtWidgets.QAction(Calculator)
-        self.actionStandarad.setObjectName("actionStandarad")
-        self.actionScientific_2 = QtWidgets.QAction(Calculator)
-        self.actionScientific_2.setObjectName("actionScientific_2")
-        self.actionDegrees = QtWidgets.QAction(Calculator)
-        self.actionDegrees.setObjectName("actionDegrees")
-        self.actionRadians = QtWidgets.QAction(Calculator)
-        self.actionRadians.setObjectName("actionRadians")
-        self.actionNight = QtWidgets.QAction(Calculator)
-        self.actionNight.setObjectName("actionNight")
-        self.actionDay = QtWidgets.QAction(Calculator)
-        self.actionDay.setObjectName("actionDay")
 
         self.retranslateUi(Calculator)
         QtCore.QMetaObject.connectSlotsByName(Calculator)
@@ -979,17 +970,14 @@ class Ui_Calculator(object):
             logic.clear_all()
             self.display.setText(logic.equation)
         elif pressed == "del":
-            delDisplay = self.display.text()
-            if len(delDisplay) <= 1:
-                self.display.setText("0")
-            else:
-                logic.delete()
-                self.display.setText(logic.equation)
+            logic.delete()
+            self.display.setText(logic.equation)
         elif pressed == "minimize":
             self.showMinimized()
         elif pressed == "close":
             QtCore.QCoreApplication.instance().quit()
         elif pressed == "degrad":
+            self.display.setText(logic.equation)
             if str(self.deg.styleSheet()) == "color: rgb(255, 255, 255);":
                 self.rad.setStyleSheet("color: rgb(255, 255, 255);")
                 self.deg.setStyleSheet("")
@@ -1035,7 +1023,7 @@ class Ui_Calculator(object):
         elif pressed == "-":
             logic.subtraction()
         elif pressed == "×":
-            logic.addition()
+            logic.multiplication()
         elif pressed == "﹣":
             logic.negative_sign()
         elif pressed == "÷":
@@ -1072,7 +1060,7 @@ class MyWin(QtWidgets.QMainWindow, Ui_Calculator):
         self.setupUi(self)
         self.dragPos = QtCore.QPoint()
         
-    def mousePressEvent(self, event):                                
+    def mousePressEvent(self, event):     
         self.dragPos = event.globalPos()
         
     def mouseMoveEvent(self, event):                              
