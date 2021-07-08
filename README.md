@@ -1,4 +1,21 @@
 
+# Calculator_LOGIC UPDATES
+--- branch dedicated for the calculator logic 
+
+cf(calculator_logic) and test_run(test file)  uploaded June 29 - this is the earliest version of the calculator logic  
+
+----------------------------------------------------------------calcu_logic.py-------------------------- 
+- version 2 of the calcu-logic 
+- added features: -decimal -trigonometry - inversetrigonometry -logarithms -square root -different errors - delete(one character) -ans function 
+
+- fixes:
+float accuracy
+
+---------------------------------------------------------------test.py------------------
+- unittest for the calcu_logic.py, as of now it contains 29 tests 
+- calcu_logic_scratchTests ----> contains the scratch codes used in making the logic file of the calculator 
+
+
 # Calculator_UI
 This branch is dedicated for the Graphics User interface of the calculator 
 
@@ -17,13 +34,8 @@ June 30 -- Calculator version 1 finished
   + Ans button
   + Single Clear button
 
-
 July 7 (1:22 AM)
 - uploaded main.py
 - uploaded calcu_logic.py 
 -  ------------------------- 
 - These two files are the version 2.0 of the calculator, expanded logic and new UI  
-
-
-
-
