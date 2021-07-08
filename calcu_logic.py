@@ -5,30 +5,19 @@ import math
 equation = ""  # variable that stores all the inputs
 syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry = 0,0,0,0  #variable that acts as a flag if there is syntax error
 
-symbols = ["++", "--", "**", "//", "÷÷"]
+symbols = ["++", "--", "**", "//", "÷÷", "××"]
 trigonometry = ["sin", "cos", "tan","arcsin", "arccos", "arctan"]
 logarithms = ["ln", "e", "log"]
-
-squar_root = "√"
 answer_button = "0" #default answer value to zero
 chain = False #This flag will deside if the calculation will automatically chain (input ANS by default)
 deg_rad = True #the calculator is in degrees mode if True, and rad mode if false, it is degrees mode in default.
-
+saved_equation = "0"
 #----------calculator functions-----------
 def calculate() -> str:
     """this executes the equation"""
     global equation, syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry
-    global answer_button, chain
+    global answer_button, chain, saved_equation
     find_ans()
-
-
-    #check for double symbol errors
-    for s in symbols:
-        if s in equation:
-            return "Syntax error"
-    convert_symbols()
-    #check for sqrt
-    if squar_root in equation:
     #check for double symbol errors
     for s in symbols:
         if s in equation:
@@ -53,14 +42,6 @@ def calculate() -> str:
             examine_trigo() #convert all trigo to numerical
             break
     #check if there is logarithms in equation
-    for l in logarithms:
-        if l in equation:
-            examine_logarithm()
-            break
-
-    if syntax_inversetrigonometry:
-        return "math domain error"   # when inverse trigo is given out of range
-    elif syntax_trigonometry:
 
     if syntax_inversetrigonometry:
         clear_all()
@@ -72,15 +53,12 @@ def calculate() -> str:
         return "0"     #when input is empty, it equals to zero
     try:
         syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry = 0,0,0,0
+        saved_equation = equation
         answer_button = str(eval(equation))
         equation = ""
         chain = True
         return answer_button
     except ZeroDivisionError:
-        return "Math zero divison error"
-    except:
-        return "Syntax error"
-
         clear_all()
         return "Math zero division error"
     except:
@@ -171,9 +149,6 @@ def delete() -> None:
     global equation
     equation = equation.replace(" ", "")
     sym = "nsg"
-
-    if equation[-3:-1] == "nl": #delete the whole "ln"
-
     if equation [-6:] == "arcsin":
         equation = equation[:-6]
     elif equation [-6:] == "arccos":
@@ -368,7 +343,6 @@ def examine_trigo() -> None:
     find_sin()
     find_cos()
     find_tan()
-
 def specific_examine_trigo(equation) -> None:
     """This function is used to replace all trigo function in the equation to their answer"""
     equation = specific_find_asin(equation)
@@ -378,7 +352,6 @@ def specific_examine_trigo(equation) -> None:
     equation = specific_find_cos(equation)
     equation = specific_find_tan(equation)
     return equation
-
 def find_sin() -> None:
     """This converts the sin in the equation to numerical value"""
     global equation, syntax_trigonometry
@@ -405,7 +378,6 @@ def find_sin() -> None:
             replace_word = "sin"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
-
 def specific_find_sin(equation) -> None:
     """This converts the sin in the equation to numerical value"""
     global syntax_trigonometry
@@ -433,7 +405,6 @@ def specific_find_sin(equation) -> None:
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
     return equation
-
 def find_cos() -> None:
     """This converts the cos in the equation to numerical value"""
     global equation, syntax_trigonometry
@@ -460,8 +431,6 @@ def find_cos() -> None:
             replace_word = "cos"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
-
-            
 def specific_find_cos(equation) -> None:
     """This converts the cos in the equation to numerical value"""
     while "cos" in equation:
@@ -488,7 +457,6 @@ def specific_find_cos(equation) -> None:
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
     return equation
-  
 def find_tan() -> None:
     """This converts the tan in the quation to numerical value"""
     global equation, syntax_trigonometry
@@ -515,8 +483,6 @@ def find_tan() -> None:
             replace_word = "tan"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
-
-            
 def specific_find_tan(equation) -> None:
     """This converts the tan in the quation to numerical value"""
     while "tan" in equation:
@@ -543,7 +509,6 @@ def specific_find_tan(equation) -> None:
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
     return equation
-
 def find_asin() -> None:
     """This converts the arcsin in the equation to numerical value"""
     global equation, syntax_trigonometry, syntax_inversetrigonometryn
@@ -565,8 +530,6 @@ def find_asin() -> None:
             replace_word = "arcsin"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
-
-            
 def specific_find_asin(equation) -> None:
     """This converts the arcsin in the equation to numerical value"""
     global syntax_trigonometry
@@ -590,7 +553,6 @@ def specific_find_asin(equation) -> None:
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
     return equation
-
 def find_acos() -> None:
     """This converts the arccos in the equation to numerical value"""
     global equation, syntax_trigonometry, syntax_inversetrigonometryn
@@ -613,7 +575,6 @@ def find_acos() -> None:
             replace_word = "arccos"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
-            
 def specific_find_acos(equation) -> None:
     """This converts the arccos in the equation to numerical value"""
     while "arccos" in equation:
@@ -635,7 +596,7 @@ def specific_find_acos(equation) -> None:
             replace_word = "arccos"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
-
+    return equation
 def find_atan() -> None:
     """This converts the arctan in the equation to numerical value"""
     global equation, syntax_trigonometry, syntax_inversetrigonometryn
@@ -657,7 +618,6 @@ def find_atan() -> None:
             replace_word = "arctan"
             equation = equation.replace(replace_word, "")
             syntax_trigonometry += 1
-
 def specific_find_atan(equation) -> None:
     """This converts the arctan in the equation to numerical value"""
     while "arctan" in equation:
@@ -713,8 +673,6 @@ def find_number_trigo(i: int) -> str:
         if i > len(equation) - 1:
             break
     return n
-
-  
 def specific_find_number_trigo(equation: str, i: int) -> str:
     """to extract the number from a trigo expression;i is the index of the expression"""
     loop = True
@@ -746,15 +704,12 @@ def specific_find_number_trigo(equation: str, i: int) -> str:
         if i > len(equation) - 1:
             break
     return n
-
 #------------------------------------------------------Logarithms, e, ln-------------------------------------------------
 def examine_logarithm() -> None:
     """converts any logarthm inputs into numerical value"""
     convert_e()
     find_ln()
     find_log()
-
-    
 def specific_examine_logarithm(equation) -> None:
     """converts any logarthm inputs into numerical value"""
     equation = specific_convert_e(equation)
@@ -769,14 +724,12 @@ def convert_e() -> None:
         ans = math.e
         equation = equation.replace("e", str(ans))
 
-
 def specific_convert_e(equation) -> None:
     """This converts the tan in the quation to numerical value"""
     while "e" in equation:
         ans = math.e
         equation = equation.replace("e", str(ans))
     return equation
-
 
 def find_ln() -> None:
     """This converts the tan in the quation to numerical value"""
@@ -821,7 +774,6 @@ def specific_find_ln(equation) -> None:
             replace_word = "ln"
             equation = equation.replace(replace_word, "")
     return equation
-
 def find_log() -> None:
     """This converts the tan in the quation to numerical value"""
     global equation,syntax_inversetrigonometry
@@ -844,7 +796,6 @@ def find_log() -> None:
             replace_word = "log"
             equation = equation.replace(replace_word, "")
 
-
 def specific_find_log(equation) -> None:
     """This converts the tan in the quation to numerical value"""
     while "log" in equation:
@@ -866,7 +817,6 @@ def specific_find_log(equation) -> None:
             replace_word = "log"
             equation = equation.replace(replace_word, "")
     return equation
-
 
 def find_number_ln(i: int) -> str:
     """to extract the number from an ln expression
@@ -958,7 +908,6 @@ def examine_sqrt() -> None:
             syntax_inversetrigonometry += 1
             replace_word = "√"
             equation = equation.replace(replace_word, "")
-
 def specific_examine_sqrt(equation) -> None:
     """This function converts sqrt into numerical values"""
     while "√" in equation:
@@ -1015,7 +964,6 @@ def one():
     """Adding number 5 to the equation"""
     equation += "1"
     chain = False
-
 def two():
     global equation,chain
     """Adding number 5 to the equation"""
@@ -1055,19 +1003,13 @@ def nine():
     global equation,chain
     """Adding number 5 to the equation"""
     equation += "9"
-
 def zero():
     global equation,chain
     """Adding number 5 to the equation"""
     equation += "0"
     chain = False
-
 def pi() -> None:
     """This will input pi"""
     global equation, chain
     equation += "𝜋"
     chain = False
-
-equation = ".123"
-print(calculate())  
-

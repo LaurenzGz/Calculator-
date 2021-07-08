@@ -17,7 +17,7 @@ import calcu_logic as logic
 class Ui_Calculator(object):
     def setupUi(self, Calculator):
         Calculator.setObjectName("Calculator")
-        Calculator.resize(328, 407)
+        Calculator.resize(328, 432)
         Calculator.setWindowFlags(Qt.FramelessWindowHint)
         Calculator.setAttribute(Qt.WA_NoSystemBackground, True)
         Calculator.setAttribute(Qt.WA_TranslucentBackground, True)
@@ -28,7 +28,7 @@ class Ui_Calculator(object):
         self.centralwidget = QtWidgets.QWidget(Calculator)
         self.centralwidget.setObjectName("centralwidget")
         self.seven = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("7"))
-        self.seven.setGeometry(QtCore.QRect(10, 191, 60, 50))
+        self.seven.setGeometry(QtCore.QRect(10, 216, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -44,7 +44,7 @@ class Ui_Calculator(object):
 "}")
         self.seven.setObjectName("seven")
         self.eight = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("8"))
-        self.eight.setGeometry(QtCore.QRect(72, 191, 60, 50))
+        self.eight.setGeometry(QtCore.QRect(72, 216, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -60,7 +60,7 @@ class Ui_Calculator(object):
 "}")
         self.eight.setObjectName("eight")
         self.four = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("4"))
-        self.four.setGeometry(QtCore.QRect(10, 243, 60, 50))
+        self.four.setGeometry(QtCore.QRect(10, 268, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -76,7 +76,7 @@ class Ui_Calculator(object):
 "}")
         self.four.setObjectName("four")
         self.five = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("5"))
-        self.five.setGeometry(QtCore.QRect(72, 243, 60, 50))
+        self.five.setGeometry(QtCore.QRect(72, 268, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -92,7 +92,7 @@ class Ui_Calculator(object):
 "}")
         self.five.setObjectName("five")
         self.nine = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("9"))
-        self.nine.setGeometry(QtCore.QRect(134, 191, 60, 50))
+        self.nine.setGeometry(QtCore.QRect(134, 216, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -108,7 +108,7 @@ class Ui_Calculator(object):
 "}")
         self.nine.setObjectName("nine")
         self.six = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("6"))
-        self.six.setGeometry(QtCore.QRect(134, 243, 60, 50))
+        self.six.setGeometry(QtCore.QRect(134, 268, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -124,7 +124,7 @@ class Ui_Calculator(object):
 "}")
         self.six.setObjectName("six")
         self.one = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("1"))
-        self.one.setGeometry(QtCore.QRect(10, 295, 60, 50))
+        self.one.setGeometry(QtCore.QRect(10, 320, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -140,7 +140,7 @@ class Ui_Calculator(object):
 "}")
         self.one.setObjectName("one")
         self.two = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("2"))
-        self.two.setGeometry(QtCore.QRect(72, 295, 60, 50))
+        self.two.setGeometry(QtCore.QRect(72, 320, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -156,7 +156,7 @@ class Ui_Calculator(object):
 "}")
         self.two.setObjectName("two")
         self.three = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("3"))
-        self.three.setGeometry(QtCore.QRect(134, 295, 60, 50))
+        self.three.setGeometry(QtCore.QRect(134, 320, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -172,7 +172,7 @@ class Ui_Calculator(object):
 "}")
         self.three.setObjectName("three")
         self.zero = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("0"))
-        self.zero.setGeometry(QtCore.QRect(10, 347, 60, 50))
+        self.zero.setGeometry(QtCore.QRect(10, 372, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -188,7 +188,7 @@ class Ui_Calculator(object):
 "}")
         self.zero.setObjectName("zero")
         self.decimal = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("."))
-        self.decimal.setGeometry(QtCore.QRect(72, 347, 60, 50))
+        self.decimal.setGeometry(QtCore.QRect(72, 372, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -204,7 +204,7 @@ class Ui_Calculator(object):
 "}")
         self.decimal.setObjectName("decimal")
         self.clear = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("clear"))
-        self.clear.setGeometry(QtCore.QRect(258, 191, 60, 50))
+        self.clear.setGeometry(QtCore.QRect(258, 216, 60, 50))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -415,7 +415,7 @@ class Ui_Calculator(object):
         self.clear.setFlat(False)
         self.clear.setObjectName("clear")
         self.delButton = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("del"))
-        self.delButton.setGeometry(QtCore.QRect(196, 191, 60, 50))
+        self.delButton.setGeometry(QtCore.QRect(196, 216, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -431,7 +431,7 @@ class Ui_Calculator(object):
 "}")
         self.delButton.setObjectName("delButton")
         self.division = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("÷"))
-        self.division.setGeometry(QtCore.QRect(258, 243, 60, 50))
+        self.division.setGeometry(QtCore.QRect(258, 268, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -447,7 +447,7 @@ class Ui_Calculator(object):
 "}")
         self.division.setObjectName("division")
         self.multiplication = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("×"))
-        self.multiplication.setGeometry(QtCore.QRect(196, 243, 60, 50))
+        self.multiplication.setGeometry(QtCore.QRect(196, 268, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -463,7 +463,7 @@ class Ui_Calculator(object):
 "}")
         self.multiplication.setObjectName("multiplication")
         self.subtraction = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("-"))
-        self.subtraction.setGeometry(QtCore.QRect(258, 295, 60, 50))
+        self.subtraction.setGeometry(QtCore.QRect(258, 320, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -479,7 +479,7 @@ class Ui_Calculator(object):
 "}")
         self.subtraction.setObjectName("subtraction")
         self.addition = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("+"))
-        self.addition.setGeometry(QtCore.QRect(196, 295, 60, 50))
+        self.addition.setGeometry(QtCore.QRect(196, 320, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -495,7 +495,7 @@ class Ui_Calculator(object):
 "}")
         self.addition.setObjectName("addition")
         self.equal = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("="))
-        self.equal.setGeometry(QtCore.QRect(258, 347, 60, 50))
+        self.equal.setGeometry(QtCore.QRect(258, 372, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(15)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -511,7 +511,7 @@ class Ui_Calculator(object):
 "}")
         self.equal.setObjectName("equal")
         self.left_parenthesis = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("("))
-        self.left_parenthesis.setGeometry(QtCore.QRect(10, 127, 60, 30))
+        self.left_parenthesis.setGeometry(QtCore.QRect(10, 152, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -527,7 +527,7 @@ class Ui_Calculator(object):
 "}")
         self.left_parenthesis.setObjectName("left_parenthesis")
         self.right_parenthesis = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it(")"))
-        self.right_parenthesis.setGeometry(QtCore.QRect(72, 127, 60, 30))
+        self.right_parenthesis.setGeometry(QtCore.QRect(72, 152, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(13)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -543,7 +543,7 @@ class Ui_Calculator(object):
 "}")
         self.right_parenthesis.setObjectName("right_parenthesis")
         self.ans = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("ans"))
-        self.ans.setGeometry(QtCore.QRect(196, 347, 60, 50))
+        self.ans.setGeometry(QtCore.QRect(196, 372, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -559,7 +559,7 @@ class Ui_Calculator(object):
 "}")
         self.ans.setObjectName("ans")
         self.sin = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("sin"))
-        self.sin.setGeometry(QtCore.QRect(134, 159, 60, 30))
+        self.sin.setGeometry(QtCore.QRect(134, 184, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -575,7 +575,7 @@ class Ui_Calculator(object):
 "}")
         self.sin.setObjectName("sin")
         self.cos = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("cos"))
-        self.cos.setGeometry(QtCore.QRect(196, 159, 60, 30))
+        self.cos.setGeometry(QtCore.QRect(196, 184, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -591,7 +591,7 @@ class Ui_Calculator(object):
 "}")
         self.cos.setObjectName("cos")
         self.tan = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("tan"))
-        self.tan.setGeometry(QtCore.QRect(258, 159, 60, 30))
+        self.tan.setGeometry(QtCore.QRect(258, 184, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -607,7 +607,7 @@ class Ui_Calculator(object):
 "}")
         self.tan.setObjectName("tan")
         self.pi = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("𝜋"))
-        self.pi.setGeometry(QtCore.QRect(134, 347, 60, 50))
+        self.pi.setGeometry(QtCore.QRect(134, 372, 60, 50))
         font = QtGui.QFont()
         font.setPointSize(13)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -623,7 +623,7 @@ class Ui_Calculator(object):
 "}")
         self.pi.setObjectName("pi")
         self.sqrt = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("√"))
-        self.sqrt.setGeometry(QtCore.QRect(72, 95, 60, 30))
+        self.sqrt.setGeometry(QtCore.QRect(72, 120, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -639,7 +639,7 @@ class Ui_Calculator(object):
 "}")
         self.sqrt.setObjectName("sqrt")
         self.log = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("log"))
-        self.log.setGeometry(QtCore.QRect(196, 95, 60, 30))
+        self.log.setGeometry(QtCore.QRect(196, 120, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -655,7 +655,7 @@ class Ui_Calculator(object):
 "}")
         self.log.setObjectName("log")
         self.ln = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("ln"))
-        self.ln.setGeometry(QtCore.QRect(258, 95, 60, 30))
+        self.ln.setGeometry(QtCore.QRect(258, 120, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -671,7 +671,7 @@ class Ui_Calculator(object):
 "}")
         self.ln.setObjectName("ln")
         self.e = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("e"))
-        self.e.setGeometry(QtCore.QRect(72, 159, 60, 30))
+        self.e.setGeometry(QtCore.QRect(72, 184, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -687,7 +687,7 @@ class Ui_Calculator(object):
 "}")
         self.e.setObjectName("e")
         self.arcsin = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("arcsin"))
-        self.arcsin.setGeometry(QtCore.QRect(134, 127, 60, 30))
+        self.arcsin.setGeometry(QtCore.QRect(134, 152, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -703,7 +703,7 @@ class Ui_Calculator(object):
 "}")
         self.arcsin.setObjectName("arcsin")
         self.arccos = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("arccos"))
-        self.arccos.setGeometry(QtCore.QRect(196, 127, 60, 30))
+        self.arccos.setGeometry(QtCore.QRect(196, 152, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -719,7 +719,7 @@ class Ui_Calculator(object):
 "}")
         self.arccos.setObjectName("arccos")
         self.arctan = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("arctan"))
-        self.arctan.setGeometry(QtCore.QRect(258, 127, 60, 30))
+        self.arctan.setGeometry(QtCore.QRect(258, 152, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -735,7 +735,7 @@ class Ui_Calculator(object):
 "}")
         self.arctan.setObjectName("arctan")
         self.exponent = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("^"))
-        self.exponent.setGeometry(QtCore.QRect(134, 95, 60, 30))
+        self.exponent.setGeometry(QtCore.QRect(134, 120, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(13)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -751,7 +751,7 @@ class Ui_Calculator(object):
 "}")
         self.exponent.setObjectName("exponent")
         self.negative = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("﹣"))
-        self.negative.setGeometry(QtCore.QRect(10, 159, 60, 30))
+        self.negative.setGeometry(QtCore.QRect(10, 184, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(13)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -767,7 +767,7 @@ class Ui_Calculator(object):
 "}")
         self.negative.setObjectName("negative")
         self.degrad = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.press_it("degrad"))
-        self.degrad.setGeometry(QtCore.QRect(10, 95, 60, 30))
+        self.degrad.setGeometry(QtCore.QRect(10, 120, 60, 30))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -783,7 +783,7 @@ class Ui_Calculator(object):
 "}")
         self.degrad.setObjectName("degrad")
         self.display = QtWidgets.QLabel(self.centralwidget)
-        self.display.setGeometry(QtCore.QRect(20, 30, 288, 50))
+        self.display.setGeometry(QtCore.QRect(20, 35, 288, 70))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -793,7 +793,7 @@ class Ui_Calculator(object):
         self.display.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
         self.display.setObjectName("display")
         self.background = QtWidgets.QLabel(self.centralwidget)
-        self.background.setGeometry(QtCore.QRect(10, 25, 308, 60))
+        self.background.setGeometry(QtCore.QRect(10, 25, 308, 85))
         self.background.setStyleSheet("background: rgba(22, 22, 22, 200);")
         self.background.setText("")
         self.background.setObjectName("background")
@@ -850,6 +850,24 @@ class Ui_Calculator(object):
         self.bgFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.bgFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.bgFrame.setObjectName("bgFrame")
+        self.opDisplay = QtWidgets.QLabel(self.centralwidget)
+        self.opDisplay.setEnabled(True)
+        self.opDisplay.setGeometry(QtCore.QRect(20, 5, 288, 70))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setStrikeOut(False)
+        font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        self.opDisplay.setFont(font)
+        self.opDisplay.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.opDisplay.setAutoFillBackground(False)
+        self.opDisplay.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.opDisplay.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.opDisplay.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignTrailing)
+        self.opDisplay.setWordWrap(False)
+        self.opDisplay.setObjectName("opDisplay")
         self.bgFrame.raise_()
         self.dragFrame.raise_()
         self.background.raise_()
@@ -889,6 +907,7 @@ class Ui_Calculator(object):
         self.negative.raise_()
         self.degrad.raise_()
         self.display.raise_()
+        self.opDisplay.raise_()
         self.minimize.raise_()
         self.close.raise_()
         self.deg.raise_()
@@ -950,6 +969,7 @@ class Ui_Calculator(object):
         self.log.setText(_translate("Calculator", "log"))
         self.ln.setText(_translate("Calculator", "ln"))
         self.e.setText(_translate("Calculator", "e"))
+        self.e.setShortcut(_translate("Calculator", "e"))
         self.arcsin.setText(_translate("Calculator", "arcsin"))
         self.arccos.setText(_translate("Calculator", "arccos"))
         self.arctan.setText(_translate("Calculator", "arctan"))
@@ -959,6 +979,8 @@ class Ui_Calculator(object):
         self.degrad.setText(_translate("Calculator", "deg/rad"))
         self.display.setText(_translate("Calculator", "0"))
         self.display.setStyleSheet("color: rgb(255, 255, 255);")
+        self.opDisplay.setText(_translate("Calculator", "0"))
+        self.opDisplay.setStyleSheet("color: rgb(255, 255, 255);")
         self.minimize.setText(_translate("Calculator", "—"))
         self.close.setText(_translate("Calculator", "✕"))
         self.deg.setText(_translate("Calculator", "DEG"))
@@ -968,91 +990,137 @@ class Ui_Calculator(object):
     def press_it(self, pressed):
         if pressed == "clear":
             logic.clear_all()
-            self.display.setText(logic.equation)
+            logic.saved_equation = "0"
+            self.opDisplay.setText("0")
+            self.display.setText("0")
         elif pressed == "del":
-            logic.delete()
-            self.display.setText(logic.equation)
+            if len(logic.equation) <= 1:
+                logic.delete()
+                logic.saved_equation = "0"
+                self.opDisplay.setText("0")
+            else:
+                logic.delete()
+                self.opDisplay.setText(logic.equation)
         elif pressed == "minimize":
             self.showMinimized()
         elif pressed == "close":
             QtCore.QCoreApplication.instance().quit()
         elif pressed == "degrad":
-            self.display.setText(logic.equation)
             if str(self.deg.styleSheet()) == "color: rgb(255, 255, 255);":
                 self.rad.setStyleSheet("color: rgb(255, 255, 255);")
                 self.deg.setStyleSheet("")
                 logic.deg_rad = False
+                if logic.saved_equation != "0":
+                    logic.equation = logic.saved_equation
+
             else:
                 self.deg.setStyleSheet("color: rgb(255, 255, 255);")
                 self.rad.setStyleSheet("")
                 logic.deg_rad = True
+                if logic.saved_equation != "0":
+                    logic.equation = logic.saved_equation
+
         elif pressed == "1":
             logic.one()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "2":
             logic.two()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "3":
             logic.three()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "4":
             logic.four()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "5":
             logic.five()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "6":
             logic.six()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "7":
             logic.seven()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "8":
             logic.eight()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "9":
             logic.nine()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "0":
             logic.zero()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "(":
             logic.parenthesis_open()
+            self.opDisplay.setText(logic.equation)
         elif pressed == ")":
             logic.parenthesis_close()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "log":
             logic.log()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "ln":
             logic.ln()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "e":
             logic.e()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "√":
             logic.sqrt()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "+":
             logic.addition()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "-":
             logic.subtraction()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "×":
             logic.multiplication()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "﹣":
             logic.negative_sign()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "÷":
             logic.division()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "^":
             logic.exponent()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "sin":
             logic.sin()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "cos":
             logic.cos()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "tan":
             logic.tan()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "arcsin":
             logic.arcsin()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "arccos":
             logic.arccos()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "arctan":
             logic.arctan()
+            self.opDisplay.setText(logic.equation)
         elif pressed == ".":
             logic.decimal()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "𝜋":
             logic.pi()
+            self.opDisplay.setText(logic.equation)
         elif pressed == "=":
-            self.display.setText(logic.calculate())
-            return None
+            if logic.equation == "":
+                return None
+            else:
+                self.opDisplay.setText(self.opDisplay.text())
+                self.display.setText(logic.calculate())
+            
         elif pressed == "ans":
             logic.ans()
+            self.opDisplay.setText(logic.equation)
 
-        self.display.setText(logic.equation)
 
 class MyWin(QtWidgets.QMainWindow, Ui_Calculator):
     def __init__(self):
@@ -1060,7 +1128,7 @@ class MyWin(QtWidgets.QMainWindow, Ui_Calculator):
         self.setupUi(self)
         self.dragPos = QtCore.QPoint()
         
-    def mousePressEvent(self, event):     
+    def mousePressEvent(self, event):                                
         self.dragPos = event.globalPos()
         
     def mouseMoveEvent(self, event):                              
