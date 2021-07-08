@@ -1,3 +1,9 @@
+
+# Calculator_UI
+This branch is dedicated for the Graphics User interface of the calculator 
+
+Log updates: 
+
 # Calculator-
 
 This repository is dedicated for the 2021 object oriented programming for electronics engineering subject.
@@ -17,3 +23,7 @@ July 7 (1:22 AM)
 - uploaded calcu_logic.py 
 -  ------------------------- 
 - These two files are the version 2.0 of the calculator, expanded logic and new UI  
+
+
+
+
