@@ -5,7 +5,7 @@ import math
 equation = ""  # variable that stores all the inputs
 syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry = 0,0,0,0  #variable that acts as a flag if there is syntax error
 
-symbols = ["++", "--", "**", "//", "÷÷", "××"]
+symbols = ["++", "--", "**", "//", "÷÷"]
 trigonometry = ["sin", "cos", "tan","arcsin", "arccos", "arctan"]
 logarithms = ["ln", "e", "log"]
 answer_button = "0" #default answer value to zero
@@ -54,7 +54,7 @@ def calculate() -> str:
     try:
         syntax_flag, syntax_logarithm, syntax_trigonometry,syntax_inversetrigonometry = 0,0,0,0
         saved_equation = equation
-        answer_button = str(round(eval(equation),10))
+        answer_button = str(eval(equation))
         equation = ""
         chain = True
         return answer_button
@@ -511,7 +511,7 @@ def specific_find_tan(equation) -> None:
     return equation
 def find_asin() -> None:
     """This converts the arcsin in the equation to numerical value"""
-    global equation, syntax_trigonometry, syntax_inversetrigonometry
+    global equation, syntax_trigonometry, syntax_inversetrigonometryn
     while "arcsin" in equation:
 
         i = equation.index("arcsin")
@@ -525,7 +525,7 @@ def find_asin() -> None:
                 replace_word = f"thearcsin{num}"
                 equation = equation.replace(replace_word, str(math.degrees(ans)))
             except:
-                syntax_inversetrigonometry += 1
+                syntax_trigonometry += 1
         else:
             replace_word = "arcsin"
             equation = equation.replace(replace_word, "")
